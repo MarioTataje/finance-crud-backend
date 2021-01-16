@@ -18,7 +18,7 @@ public class FiscalPosition {
     @Column(name = "year_of_balance", nullable = false)
     private Date yearOfBalance;
     @Column(name = "state", nullable = false)
-    @Enumerated(value = EnumType.ORDINAL)
+    @Enumerated(value = EnumType.STRING)
     private State state;
     @Column(name = "category", nullable = false)
     private String category;
