@@ -1,7 +1,9 @@
 package com.financecrudbackend;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class FinanceCrudBackendApplication {
@@ -10,4 +12,8 @@ public class FinanceCrudBackendApplication {
         SpringApplication.run(FinanceCrudBackendApplication.class, args);
     }
 
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
 }
