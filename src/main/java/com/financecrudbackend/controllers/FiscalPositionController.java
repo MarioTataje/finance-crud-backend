@@ -5,6 +5,10 @@ import com.financecrudbackend.resources.FiscalPositionResource;
 import com.financecrudbackend.resources.MessageResource;
 import com.financecrudbackend.resources.SaveFiscalPositionResource;
 import com.financecrudbackend.services.FiscalPositionService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,6 +34,10 @@ public class FiscalPositionController {
     }
 
     //Method that allows to retrieve all fiscal positions instances
+    @Operation(summary = "Get Fiscal Positions", description = "Get All Fiscal Positions by Page",
+            tags = "fiscal-positions")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should retrieve all fiscal positions",
+            content = @Content(mediaType = "application/json"))})
     @GetMapping("/fiscal-positions")
     public ResponseEntity<Page<FiscalPositionResource>> getAllFiscalPosition(Pageable pageable) {
         try {
@@ -49,6 +57,11 @@ public class FiscalPositionController {
     }
 
     //Method that allows to retrieve a fiscal position by the id
+    @Operation(summary = "Get Fiscal Position", description = "Get Fiscal Position by Id",
+            tags = "fiscal-positions")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200",
+            description = "Should retrieve a fiscal positions by the id",
+            content = @Content(mediaType = "application/json"))})
     @GetMapping("/fiscal-positions/{id}")
     public ResponseEntity<FiscalPositionResource> getFiscalPositionById(@PathVariable Long id) {
         FiscalPosition fiscalPosition = fiscalPositionService.getById(id);
@@ -56,6 +69,10 @@ public class FiscalPositionController {
     }
 
     //Method that allows to save a fiscal position instance
+    @Operation(summary = "Create Fiscal Position", description = "Create Fiscal Position instance",
+            tags = "fiscal-positions")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should create a fiscal position instance",
+            content = @Content(mediaType = "application/json"))})
     @PostMapping("/fiscal-positions")
     public ResponseEntity<FiscalPositionResource> saveFiscalPosition
             (@RequestBody SaveFiscalPositionResource fiscalPosition){
@@ -68,6 +85,10 @@ public class FiscalPositionController {
     }
 
     //Method that allows to update a fiscal position instance
+    @Operation(summary = "Update Fiscal Position", description = "Update Fiscal Position by the Id",
+            tags = "fiscal-positions")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should update a fiscal position by the Id",
+            content = @Content(mediaType = "application/json"))})
     @PutMapping("/fiscal-positions/{id}")
     public ResponseEntity<FiscalPositionResource> updateFiscalPosition(
             @PathVariable Long id,
@@ -77,6 +98,9 @@ public class FiscalPositionController {
     }
 
     //Method that allows to delete a fiscal position instance
+    @Operation(summary = "Delete Fiscal Position", description = "Delete Fiscal Position by the Id",
+            tags = "fiscal-positions")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Should delete a fiscal position by the Id")})
     @DeleteMapping("/fiscal-positions/{id}")
     public ResponseEntity<MessageResource> deleteFiscalPosition(@PathVariable Long id){
         fiscalPositionService.delete(id);
