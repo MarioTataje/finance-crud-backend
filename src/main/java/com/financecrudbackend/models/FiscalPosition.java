@@ -1,11 +1,10 @@
 package com.financecrudbackend.models;
 
+import com.financecrudbackend.util.YearPropertyConverter;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.Year;
 
 @Data
 @Entity
@@ -14,9 +13,9 @@ public class FiscalPosition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @DateTimeFormat(pattern = "yyyy")
-    @Column(name = "year_of_balance", nullable = false)
-    private Date yearOfBalance;
+    @Column(name = "year_of_balance",columnDefinition = "smallint", nullable = false)
+    @Convert(converter = YearPropertyConverter.class)
+    private Year yearOfBalance;
     @Column(name = "state", nullable = false)
     @Enumerated(value = EnumType.STRING)
     private State state;

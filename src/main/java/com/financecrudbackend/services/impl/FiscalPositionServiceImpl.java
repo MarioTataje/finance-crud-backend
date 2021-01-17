@@ -1,6 +1,6 @@
 package com.financecrudbackend.services.impl;
 
-import com.financecrudbackend.exception.NotFoundException;
+import com.financecrudbackend.util.NotFoundException;
 import com.financecrudbackend.models.FiscalPosition;
 import com.financecrudbackend.repositories.FiscalPositionRepository;
 import com.financecrudbackend.services.FiscalPositionService;
@@ -8,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
-import java.util.function.BiFunction;
 
 @Service
 public class FiscalPositionServiceImpl implements FiscalPositionService {

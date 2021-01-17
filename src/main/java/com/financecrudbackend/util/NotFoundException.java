@@ -1,4 +1,4 @@
-package com.financecrudbackend.exception;
+package com.financecrudbackend.util;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

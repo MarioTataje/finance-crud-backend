@@ -2,19 +2,17 @@ package com.financecrudbackend.resources;
 
 import com.financecrudbackend.models.State;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.Year;
 
 @Data
 public class SaveFiscalPositionResource {
-    @DateTimeFormat(pattern = "YYYY")
     @NotNull
-    private Date yearOfBalance;
+    private Year yearOfBalance;
     @NotNull
     @Size(max = 10)
     private String category;
