@@ -11,6 +11,7 @@ public class OpenApiConfiguration {
     @Bean(name = "financeCrudApi")
     public OpenAPI financeCrudApi() {
         return new OpenAPI().components(new Components()).info(new Info().title("Finance Crud API")
-                .description("Finance Crud API implemented with Spring Boot RESTful service and documented using springdoc-openapi"));
+                .description("Finance Crud API implemented with Spring Boot RESTful" +
+                        " service and documented using springdoc-openapi"));
     }
 }

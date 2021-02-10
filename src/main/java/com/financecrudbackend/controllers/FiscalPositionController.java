@@ -50,7 +50,8 @@ public class FiscalPositionController {
                     .stream()
                     .map(this::convertToResource)
                     .collect(Collectors.toList());
-            Page<FiscalPositionResource> resources = new PageImpl<>(fiscalPositionsResources, pageable, fiscalPositionsResources.size());
+            Page<FiscalPositionResource> resources = new PageImpl<>(fiscalPositionsResources, pageable,
+                    fiscalPositionsResources.size());
             return new ResponseEntity<>(resources, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

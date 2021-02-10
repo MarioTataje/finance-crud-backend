@@ -20,3 +20,4 @@ public class YearPropertyConverter implements AttributeConverter<Year, Short> {
         return null;
     }
 }
+
